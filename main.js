@@ -1,8 +1,8 @@
-const readlinePromises = require("node:readline/promises");
-const {stdin, stdout} = require("process"); //standardin e standardout = entrada e saída padrão (é o terminal de qualquer executável)
+import {createInterface} from "node:readline/promises";
+import {stdin, stdout} from "process"; //standardin e standardout = entrada e saída padrão (é o terminal de qualquer executável)
 
 async function main(){
-    const terminal = readlinePromises.createInterface(stdin, stdout);
+    const terminal = createInterface(stdin, stdout);
     
     const nome = await terminal.question("Digite um nome de usuário do GitHub: ");
     
