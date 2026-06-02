@@ -1,8 +1,8 @@
 export class UsuarioGitHub{
     constructor(
-        private login:string, 
+        public login:string, 
         private id:number, 
-        private html_url:string,
+        public html_url:string,
         private public_repos:number,
         private name:string | null
     ){

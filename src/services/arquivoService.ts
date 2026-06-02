@@ -22,7 +22,6 @@ function verificarUsuarioExistente(usuarios:UsuarioGitHub[], user:UsuarioGitHub)
 
 export async function salvarUsuario(user:UsuarioGitHub):Promise<boolean>{
     const usuarios = await lerArquivo();
-    console.log(usuarios);
 
     if(!usuarios){ //se não tiver nada dentro do arquivo
         await writeFile('./src/database/database.json', JSON.stringify([user]), {encoding:"utf-8"}); //./ -> apartir daqui
@@ -46,7 +45,7 @@ export async function removerUsuario(user:string){
     if(!usuarios){ return false;}
 
     const indice = usuarios.findIndex((item)=>{
-        return item.getLogin === user?true:false;
+        return item.login === user?true:false;
     });
 
     if(indice !== -1){

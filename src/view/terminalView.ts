@@ -53,6 +53,7 @@ export async function exibirMenu(){
                 break; //Este break encerra o switch
             case "2":
                 const listaUsers = await verEquipeController();
+                //console.log(listaUsers);
 
                 if(!listaUsers || listaUsers.length ===0){
                     console.log("Nenhum usuário foi salvo na equipe."); break;
@@ -60,7 +61,7 @@ export async function exibirMenu(){
                 console.log("----------------------------------------");
                 console.log("[Lista de desenvolvedores]\n");
                 listaUsers.forEach((user, index)=>{
-                    console.log(`${index+1}: ${user.getLogin} | ${user.htmlURL}`);
+                    console.log(`${index+1}: ${user.login} | ${user.html_url}`);
                 });
                 console.log("----------------------------------------");
 

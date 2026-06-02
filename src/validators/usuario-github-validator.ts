@@ -19,8 +19,9 @@ export class UsuarioGitHubValidator{
         if(!this.isString(response.html_url)){throw new Error("Type Error.");}
         if(!this.isNumber(response.public_repos)){throw new Error("Type Error.");}
         
-        //Name pode ser null, undefined ou string
-        if(response.name !== null || response.name !== undefined){
+        //Name pode ser null ou string
+        //Se for diferente de nulo é uma string...
+        if(response.name !== null){
             if(!this.isString(response.name)){
                 throw new Error("Type Error.");
             }
