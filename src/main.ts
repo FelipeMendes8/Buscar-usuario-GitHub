@@ -1,4 +1,4 @@
-import {exibirMenu} from "./view/terminalView.js";
+import {exibirMenu} from "./view/terminalView"; 
 function main(){exibirMenu();}
 main();
 

@@ -5,7 +5,7 @@ import {
     salvarDevController, 
     verEquipeController,
     removerEquipeController
-} from "../controllers/projetoController.js";
+} from "../controllers/projetoController";
 
 export async function exibirMenu(){
 
@@ -24,14 +24,13 @@ export async function exibirMenu(){
             case "1":
                 const nome = await terminal.question("Digite um nome de usuário do GitHub: ");
                 const user = await buscarDevController(nome);
-                if(user.message === "Not Found" && user.status === "404"){console.log("Usuário não encontrado."); break;}
-                
+               
                 //console.log(user);  
                 console.log("----------------------------------------");
                 console.log("Usuário encontrado no GitHub:");
-                console.log(`Nome: ${user.login}`); 
-                console.log(`Link: ${user.html_url}`);  
-                console.log(`Repositórios públicos: ${user.public_repos}`); 
+                console.log(`Nome: ${user.getLogin}`); 
+                console.log(`Link: ${user.htmlURL}`);  
+                console.log(`Repositórios públicos: ${user.getPublicRepos}`); 
                 console.log("----------------------------------------");
                 
                 let resposta = await terminal.question("Deseja salvar este usuário na equipe? (s/n) ");
@@ -61,7 +60,7 @@ export async function exibirMenu(){
                 console.log("----------------------------------------");
                 console.log("[Lista de desenvolvedores]\n");
                 listaUsers.forEach((user, index)=>{
-                    console.log(`${index+1}: ${user.login} | ${user.html_url}`);
+                    console.log(`${index+1}: ${user.getLogin} | ${user.htmlURL}`);
                 });
                 console.log("----------------------------------------");
 
